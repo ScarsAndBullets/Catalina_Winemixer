@@ -4,6 +4,7 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<link rel="stylesheet" href="assets/css/reset.css" />
 		<link
 			href="https://fonts.googleapis.com/icon?family=Material+Icons"
 			rel="stylesheet"
@@ -16,11 +17,8 @@
 		<!-- Compiled and minified JavaScript -->
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 		<title>Coffee and Weather</title>
-		<style>
-			.box {
-				height: 200px;
-			}
-		</style>
+
+		<link rel="stylesheet" href="assets/css/style.css" />
 	</head>
 	<body>
 		<br />
@@ -52,6 +50,13 @@
 			<div class="row" id="weatherdata"></div>
 		</div>
 
-		<!-- <div class="container grey lighten-2 box valign-wrapper" id="googlemap"></div> -->
+		<div id="map"></div>
 	</body>
+	<script
+		async
+		defer
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHg0cxsczfC8WJSv5lhqZ3SAbmGKj_dUQ&callback=initMap"
+	></script>
+	<link type="text/JavaScript" src="assets/JavaScript/app.js" />
+	<link type="text/JavaScript" src="assets/JavaScript/maps.js" />
 </html>
