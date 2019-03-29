@@ -24,25 +24,6 @@ $.ajax({
 	}
 })
 	// We store all of the retrieved data inside of an object called "response"
-<<<<<<< HEAD
-	.then(function(response) {
-		console.log(response);
-  });
-  
-  $("#subbutton").on("click", function(e)
-{
-	e.preventDefault()
-	console.log("Submit did stuff")
-  newZipcode = $("#zipcode").val();
-  zipcode = newZipcode;
-  console.log("This is zipcode " + zipcode);
-});
-
-$(document).ready(console.log("Ready"))
-function test() {
-	console.log("Test")
-}
-=======
 .then(function(response) 
 {
 	var ajaxResponse = response;
@@ -56,7 +37,6 @@ function test() {
 	ajaxResponse = key;
 
 }); 
->>>>>>> 4a9c2007162068035721b55fffc4820ba0bf83fa
   
 $("#subbutton").on("click", function()
 {
