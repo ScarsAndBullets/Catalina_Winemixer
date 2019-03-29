@@ -1,47 +1,22 @@
-const gmapsKey = "AIzaSyAHg0cxsczfC8WJSv5lhqZ3SAbmGKj_dUQ";
+//Venues Hardcode
+const clientID = "K1WLX4BKHD5EEE2JJADJTQWJYJB52IITFXVXUVULQSPWOHV4";
+const clientSecret = "31E2BSQMJPIPOPCR54K2DTNGD0ILZPW5AL5LM42JRCBNWAD0";
+const version = "20190326";
+var locationParam = "Riverton, UT";
+var venueParam = "coffee";
+var resultLimit = "5";
 
-// Note: This example requires that you consent to location sharing when
-// prompted by your browser. If you see the error "The Geolocation service
-// failed.", it means you probably did not give permission for the browser to
-// locate you.
-var map, infoWindow;
-function initMap() {
-	map = new google.maps.Map(document.getElementById("map"), {
-		center: { lat: -34.397, lng: 150.644 },
-		zoom: 6
-	});
-	infoWindow = new google.maps.InfoWindow();
+var queryURL = `https://api.foursquare.com/v2/venues/search?near=${locationParam}&query=${venueParam}&client_id=${clientID}&client_secret=${clientSecret}&v=${version}&limit=${resultLimit}`;
 
-	// Try HTML5 geolocation.
-	if (navigator.geolocation) {
-		navigator.geolocation.getCurrentPosition(
-			function(position) {
-				var pos = {
-					lat: position.coords.latitude,
-					lng: position.coords.longitude
-				};
-
-				infoWindow.setPosition(pos);
-				infoWindow.setContent("Location found.");
-				infoWindow.open(map);
-				map.setCenter(pos);
-			},
-			function() {
-				handleLocationError(true, infoWindow, map.getCenter());
-			}
-		);
-	} else {
-		// Browser doesn't support Geolocation
-		handleLocationError(false, infoWindow, map.getCenter());
+// Here we run our AJAX call to the OpenWeatherMap API
+$.ajax({
+	url: queryURL,
+	method: "GET",
+	headers: {
+		"Access-Control-Allow-Origin": "*"
 	}
-}
-
-function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-	infoWindow.setPosition(pos);
-	infoWindow.setContent(
-		browserHasGeolocation
-			? "Error: The Geolocation service failed."
-			: "Error: Your browser doesn't support geolocation."
-	);
-	infoWindow.open(map);
-}
+})
+	// We store all of the retrieved data inside of an object called "response"
+	.then(function(response) {
+		console.log(response);
+	});
