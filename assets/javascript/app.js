@@ -20,6 +20,19 @@ $.ajax({
 		console.log(response);
   });
   
+  $("#subbutton").on("click", function(e)
+{
+	e.preventDefault()
+	console.log("Submit did stuff")
+  newZipcode = $("#zipcode").val();
+  zipcode = newZipcode;
+  console.log("This is zipcode " + zipcode);
+});
+
+$(document).ready(console.log("Ready"))
+function test() {
+	console.log("Test")
+}
   
   $("#subbutton").on("click", function()
 {
