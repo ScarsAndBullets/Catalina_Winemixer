@@ -1,5 +1,3 @@
-
-
 // This is our API key
 var weatherAPIKey = "DFl6qNBXCoZzgxeVbBFKpQ62c5sAFz0B"
 //  "q1oW3mN85QbtEooYjAPTYJraVlHLxlHG";
@@ -18,12 +16,13 @@ console.log(zipcode);
 $.ajax({
 	url: queryURL,
 	method: "GET",
-	headers:
-	{
+
+	headers: {
 		"Access-Control-Allow-Origin": "*"
 	}
 })
 	// We store all of the retrieved data inside of an object called "response"
+
 .then(function(response) 
 {
 	var ajaxResponse = response;
@@ -49,6 +48,7 @@ $("#subbutton").on("click", function()
   console.log("Zipcode = " + zipcode);
   console.log("This is queryURL " + queryURL);
   console.log(ajaxResponse);
+
 
 //   $.ajax({
 // 	url: forecastURL,
