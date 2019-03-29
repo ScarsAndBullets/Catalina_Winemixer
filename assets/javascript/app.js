@@ -1,5 +1,3 @@
-
-
 // This is our API key
 var weatherAPIKey = "q1oW3mN85QbtEooYjAPTYJraVlHLxlHG";
 var zipcode = "84115";
@@ -10,36 +8,33 @@ var queryURL = `https://dataservice.accuweather.com/locations/v1/postalcodes/sea
 $.ajax({
 	url: queryURL,
 	method: "GET",
-	headers:
-	 {
+	headers: {
 		"Access-Control-Allow-Origin": "*"
 	}
 })
 	// We store all of the retrieved data inside of an object called "response"
 	.then(function(response) {
 		console.log(response);
-  });
-  
-  $("#subbutton").on("click", function(e)
-{
-	e.preventDefault()
-	console.log("Submit did stuff")
-  newZipcode = $("#zipcode").val();
-  zipcode = newZipcode;
-  console.log("This is zipcode " + zipcode);
+	});
+
+$("#subbutton").on("click", function(e) {
+	e.preventDefault();
+	console.log("Submit did stuff");
+	newZipcode = $("#zipcode").val();
+	zipcode = newZipcode;
+	console.log("This is zipcode " + zipcode);
 });
 
-$(document).ready(console.log("Ready"))
+$(document).ready(console.log("Ready"));
 function test() {
-	console.log("Test")
+	console.log("Test");
 }
-  
-  $("#subbutton").on("click", function()
-{
- 	alert(" This shit is working ");
-//   newZipcode = $("#zipcode");
-//   zipcode = newZipcode;
-//   console.log("This is zipcode " + newZipcode);
+
+$("#subbutton").on("click", function() {
+	alert(" This shit is working ");
+	//   newZipcode = $("#zipcode");
+	//   zipcode = newZipcode;
+	//   console.log("This is zipcode " + newZipcode);
 });
 
 // Map hardcode
