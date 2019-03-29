@@ -1,4 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+  <meta charset="utf-8">
+  <title>The Best Code Ever</title>
+</head>
 
+<body>
 
-<h1> "Manny is the Best" </h1>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript">
+    // This is our API key
+    var APIKey = "q1oW3mN85QbtEooYjAPTYJraVlHLxlHG";
+    var zipcode = "84115"
+
+    var queryURL =   `https://dataservice.accuweather.com/locations/v1/postalcodes/search?apikey=${APIKey}&q=${zipcode}`
+    // Here we run our AJAX call to the OpenWeatherMap API
+    $.ajax({
+      url: queryURL,
+      method: "GET",
+      headers: {  
+          "Access-Control-Allow-Origin": "*"
+         },
+    })
+      // We store all of the retrieved data inside of an object called "response"
+      .then(function(response) {
+
+      
+        console.log(response);
+
+       
+      });
+  </script>
+</body>
+
+</html>
