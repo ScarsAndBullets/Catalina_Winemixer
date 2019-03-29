@@ -8,12 +8,7 @@ var queryURL = `https://dataservice.accuweather.com/locations/v1/postalcodes/sea
 $.ajax({
 	url: queryURL,
 	method: "GET",
-<<<<<<< HEAD
-	headers:
-	{
-=======
 	headers: {
->>>>>>> 0e02adc50c92ac0fd925d5c89caa0c875b87094f
 		"Access-Control-Allow-Origin": "*"
 	}
 })
@@ -22,15 +17,9 @@ $.ajax({
 		console.log(response);
 	});
 
-<<<<<<< HEAD
-$("#subbutton").on("click", function (e) {
-	e.preventDefault()
-	console.log("Submit did stuff")
-=======
 $("#subbutton").on("click", function(e) {
 	e.preventDefault();
 	console.log("Submit did stuff");
->>>>>>> 0e02adc50c92ac0fd925d5c89caa0c875b87094f
 	newZipcode = $("#zipcode").val();
 	zipcode = newZipcode;
 	console.log("This is zipcode " + zipcode);
@@ -41,11 +30,7 @@ function test() {
 	console.log("Test");
 }
 
-<<<<<<< HEAD
-$("#subbutton").on("click", function () {
-=======
 $("#subbutton").on("click", function() {
->>>>>>> 0e02adc50c92ac0fd925d5c89caa0c875b87094f
 	alert(" This shit is working ");
 	//   newZipcode = $("#zipcode");
 	//   zipcode = newZipcode;
