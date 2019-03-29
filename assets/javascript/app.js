@@ -11,40 +11,53 @@ $.ajax({
 	url: queryURL,
 	method: "GET",
 	headers:
-	 {
+	{
 		"Access-Control-Allow-Origin": "*"
 	}
 })
 	// We store all of the retrieved data inside of an object called "response"
-	.then(function(response) {
+	.then(function (response) {
 		console.log(response);
-  });
-  
-  $("#subbutton").on("click", function(e)
-{
+	});
+
+$("#subbutton").on("click", function (e) {
 	e.preventDefault()
 	console.log("Submit did stuff")
-  newZipcode = $("#zipcode").val();
-  zipcode = newZipcode;
-  console.log("This is zipcode " + zipcode);
+	newZipcode = $("#zipcode").val();
+	zipcode = newZipcode;
+	console.log("This is zipcode " + zipcode);
 });
 
 $(document).ready(console.log("Ready"))
 function test() {
 	console.log("Test")
 }
-  
-  $("#subbutton").on("click", function()
-{
- 	alert(" This shit is working ");
-//   newZipcode = $("#zipcode");
-//   zipcode = newZipcode;
-//   console.log("This is zipcode " + newZipcode);
+
+$("#subbutton").on("click", function () {
+	alert(" This shit is working ");
+	//   newZipcode = $("#zipcode");
+	//   zipcode = newZipcode;
+	//   console.log("This is zipcode " + newZipcode);
 });
 
 // Map hardcode
 // var queryURL2 = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=40.4136,%20-111.8926&radius=2500&keyword=coffee&key=${gmapsKey}`;
 // // Here we run our AJAX call to the OpenWeatherMap API
+$.ajax({
+
+	'url': 'https://developer.accuweather.com/user/me/apps',
+	'type': 'GET',
+	'data': {
+		'numberOfTemperatures': 5
+	},
+	'success': function (data) {
+		alert('Data: ' + data);
+	},
+	'error': function (request, error) {
+		alert("Request: " + JSON.stringify(request));
+	}
+});
+
 // $.ajax({
 // 	url: queryURL2,
 // 	method: "GET",
