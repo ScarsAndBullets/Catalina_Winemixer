@@ -17,9 +17,9 @@ $.ajax({
 		console.log(response);
   });
   
-  $("#submit").on("click", function()
+$("#submit").on("click", function()
 {
-  newZipcode = $("input");
+  var newZipcode = $("input");
   zipcode = newZipcode;
   console.log("This is zipcode " + zipcode);
 }
