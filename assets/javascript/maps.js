@@ -11,10 +11,10 @@ var queryURL = `https://api.foursquare.com/v2/venues/search?near=${locationParam
 // Here we run our AJAX call to the OpenWeatherMap API
 $.ajax({
 	url: queryURL,
-	method: "GET",
-	headers: {
-		"Access-Control-Allow-Origin": "*"
-	}
+	method: "GET"
+	// headers: {
+	// 	"Access-Control-Allow-Origin": "*"
+	//}
 })
 	// We store all of the retrieved data inside of an object called "response"
 	.then(function(response) {
