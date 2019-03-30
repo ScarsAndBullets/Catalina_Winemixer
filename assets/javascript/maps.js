@@ -8,6 +8,7 @@ var resultLimit = "5";
 
 var queryURL = `https://api.foursquare.com/v2/venues/search?near=${locationParam}&query=${venueParam}&client_id=${clientID}&client_secret=${clientSecret}&v=${version}&limit=${resultLimit}`;
 
+console.log(version);
 // Here we run our AJAX call to the OpenWeatherMap API
 $.ajax({
 	url: queryURL,

@@ -34,10 +34,10 @@ function getWeather() {
 		console.log(weatherIcon);
 		iconIndex = weatherIcon;
 
-		$("#cityDisplay").text(city);
+		//$("#cityDisplay").text(city);
 		$("#imageDisplay").text(iconURL);
-		$("#temperatureDisplay").text(temperature);
 		$("#phraseDisplay").text(phrase);
+		$("#temperatureDisplay").text(temperature);	
 		$("#maxTempDisplay").text(tempMax);
 		$("#minTempDisplay").text(tempMin);
 
@@ -48,9 +48,7 @@ getWeather()
 
 $("#subbutton").on("click", function() {
 
-  getWeather()
-
-  zipcode = $("#zipcode").val();
+  zipcode = $("#zipcode").val().trim();
   console.log("Zipcode = " + zipcode);
   queryURL = "http://api.openweathermap.org/data/2.5/weather?zip="+zipcode+"&APPID="+weatherAPIKey+"&units=imperial";
   iconURL = "http://openweathermap.org/img/w/" + iconIndex + ".png";
@@ -71,14 +69,17 @@ $("#subbutton").on("click", function() {
 	iconIndex = weatherIcon;
 	console.log(iconURL);
 
-	$("#cityDisplay").text(city);
+	//$("#cityDisplay").text(city);
 	$("#imageDisplay").text(iconURL);
-	$("#temperatureDisplay").text(temperature);
 	$("#phraseDisplay").text(phrase);
+	$("#temperatureDisplay").text(temperature);	
 	$("#maxTempDisplay").text(tempMax);
 	$("#minTempDisplay").text(tempMin);
-	
+
+	getWeather()
+
+	$("#zipcode").val("");
   	  
 });
 
-//getWeather();
+
