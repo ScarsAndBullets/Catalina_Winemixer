@@ -81,4 +81,4 @@ $("#subbutton").on("click", function() {
   	  
 });
 
-// getWeather()
+//getWeather();
