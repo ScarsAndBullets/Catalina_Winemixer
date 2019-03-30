@@ -1,70 +1,84 @@
 // This is our API key
-var weatherAPIKey = "DFl6qNBXCoZzgxeVbBFKpQ62c5sAFz0B"
-//  "q1oW3mN85QbtEooYjAPTYJraVlHLxlHG";
-var weatherLocationKey = "331216";
+var weatherAPIKey = "f1e6ff86df990396171c136a8458725c"
 var zipcode = "84115";
 var ajaxResponse;
-var weatherResponse = "";
+var queryURL = "http://api.openweathermap.org/data/2.5/weather?zip="+zipcode+"&APPID="+weatherAPIKey+"&units=imperial";
+var iconIndex = ""
+var iconURL = "<img src='http://openweathermap.org/img/w/" + iconIndex + ".png'>";
 
-var queryURL = "http://dataservice.accuweather.com/locations/v1/search?apikey="+weatherAPIKey+"&q="+zipcode;
-// var queryURL `https://dataservice.accuweather.com/locations/v1/postalcodes/search?q=16801&apikey=${weatherAPIKey}&q=${zipcode}`;
-var forecastURL = "https://dataservice.accuweather.com/forecasts/v1/daily/1day/"+weatherLocationKey+"?apikey="+weatherAPIKey+"&details=true";
+console.log(queryURL);
 
-console.log(zipcode);
+function getWeather() {
+	$.ajax({
+		url: queryURL,
+		method: "GET",
+
+		headers: {
+			//"Access-Control-Allow-Origin": "*"
+		}
+	})
+	.then(function(response) {
+		ajaxResponse = response;
+		console.log(ajaxResponse);
+		var city = response.name;
+		console.log(city);
+		var temperature = response.main.temp;
+		console.log(temperature);
+		var tempMax = response.main.temp_max;
+		console.log(tempMax);
+		var tempMin = response.main.temp_min;
+		console.log(tempMin);
+		var phrase = response.weather[0].description;
+		console.log(phrase);
+		var weatherIcon = response.weather[0].icon;
+		console.log(weatherIcon);
+		iconIndex = weatherIcon;
+
+		$("#cityDisplay").text(city);
+		$("#imageDisplay").text(iconURL);
+		$("#temperatureDisplay").text(temperature);
+		$("#phraseDisplay").text(phrase);
+		$("#maxTempDisplay").text(tempMax);
+		$("#minTempDisplay").text(tempMin);
+
+	});
+} 
+getWeather()
 
 
-$.ajax({
-	url: queryURL,
-	method: "GET",
+$("#subbutton").on("click", function() {
 
-	headers: {
-		"Access-Control-Allow-Origin": "*"
-	}
-})
-	// We store all of the retrieved data inside of an object called "response"
+  getWeather()
 
-.then(function(response) 
-{
-	var ajaxResponse = response;
-	console.log("This is response from queryURL " + ajaxResponse);
-	// weatherLocationkey = response.ParentCity[;
-	// console.log(weatherLocationKey);
-	var key = ajaxResponse[0].ParentCity.Key
-	console.log("this is the key")
-	console.log(key)
-
-	ajaxResponse = key;
-
-}); 
-  
-$("#subbutton").on("click", function()
-{
   zipcode = $("#zipcode").val();
-  queryURL = "http://dataservice.accuweather.com/locations/v1/search?apikey="+weatherAPIKey+"&q="+zipcode;
- 
-//   weatherLocationkey = response.ParentCity[1];
-//   console.log(weatherLocationKey);
-  //zipcode = newZipcode;
   console.log("Zipcode = " + zipcode);
-  console.log("This is queryURL " + queryURL);
-  console.log(ajaxResponse);
+  queryURL = "http://api.openweathermap.org/data/2.5/weather?zip="+zipcode+"&APPID="+weatherAPIKey+"&units=imperial";
+  iconURL = "http://openweathermap.org/img/w/" + iconIndex + ".png";
+  //console.log("This is queryURL " + queryURL);
+  
+  	var city = ajaxResponse.name;
+	console.log(city);
+	var temperature = ajaxResponse.main.temp;
+	console.log(temperature);
+	var tempMax = ajaxResponse.main.temp_max;
+	console.log(tempMax);
+	var tempMin = ajaxResponse.main.temp_min;
+	console.log(tempMin);
+	var phrase = ajaxResponse.weather[0].description;
+	console.log(phrase);
+	var weatherIcon = ajaxResponse.weather[0].icon;
+	console.log(weatherIcon);
+	iconIndex = weatherIcon;
+	console.log(iconURL);
 
-
-//   $.ajax({
-// 	url: forecastURL,
-// 	method: "GET",
-// 	headers:
-// 	{
-// 		"Access-Control-Allow-Origin": "*"
-// 	}
-//   })	
-//   .then(function(forecastResponse) 
-//   {
-// 		weatherResponse = forecastResponse;
-// 		console.log("This is forecast response " + forecastResponse);
-// 		//weatherLocationkey = response.ParentCity;		
-//   });
-// 	  console.log("This is forecast URL " + forecastURL);
-	  
-	  
+	$("#cityDisplay").text(city);
+	$("#imageDisplay").text(iconURL);
+	$("#temperatureDisplay").text(temperature);
+	$("#phraseDisplay").text(phrase);
+	$("#maxTempDisplay").text(tempMax);
+	$("#minTempDisplay").text(tempMin);
+	
+  	  
 });
+
+//getWeather();

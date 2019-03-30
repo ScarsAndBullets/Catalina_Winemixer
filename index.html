@@ -1,149 +1,196 @@
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<link rel="stylesheet" href="assets/css/reset.css" />
+		
+		
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+		<!-- Compiled and minified CSS -->
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+		/>
+		<!-- Compiled and minified JavaScript -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+		<title>Coffee and Weather</title>
+		<link rel="stylesheet" href="assets/css/style.css" />
+	</head>
+	<body>	
+		<div class="container">
+			<nav>
+				<div class="nav-wrapper">
+					<a href="#" class="brand-logo">
+						
+						<h4><i class="material-icons prefix">local_cafe</i>Coffee and Weather<i class="material-icons prefix">cloud</i></h4>
+						
+					</a>
+					<ul id="nav-mobile" class="right hide-on-med-and-down">
+						<li><a href="about.html">About</a></li>
+					</ul>
+				</div>
+			</nav>
+		</div>
+		
+		
+		<br/>
+		<div class="container text center">
+			<div>
+				<h4></h4>
+			</div>
+		</div>
+		<br />
+		
+		<div class="container">
+			<div class="row">
+				<form class="col s12">
+					<div class="row">
+						<div class="input-field col s10">
+							<i class="material-icons prefix">mail_outline</i>
+							<input id="zipcode" type="text" class="validate" />
+							<label for="zipcode">Zip Code</label>
+						</div>
+						<a href="#" class="btn-small" id="subbutton">Submit</a>
+					</div>
+				</form>
+			</div>
+		</div>
+		<br>
+		
+		<!-- Here I am trying out the cards to replace the two divs above -->
+		<div class="container">
+			<div class="row">
+				<!-- this is column 1 -->
+				<div class="col s6 m6">
+					<h4 class="header text center white-text">Find Yr Hipsters Here</h4>
+					<!-- Shop data 1 -->
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <link rel="stylesheet" href="assets/css/reset.css" />
+					<div class="dynamicCard">
 
+					</div>
 
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-  <!-- Compiled and minified CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
-  <!-- Compiled and minified JavaScript -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-  <title>Coffee and Weather</title>
-
-  <link rel="stylesheet" href="assets/css/style.css" />
-</head>
-
-<body>
-  <div class="container">
-    <nav>
-      <div class="nav-wrapper">
-        <a href="#" class="brand-logo">
-
-          <h4><i class="material-icons prefix">local_cafe</i>Coffee and Weather Data<i
-              class="material-icons prefix">cloud</i></h4>
-
-        </a>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li><a href="about.html">About</a></li>
-        </ul>
+					<div class="card horizontal">
+						<div class="card-image" id="shopimg1">
+							<img src="https://lorempixel.com/100/150/nature/6">
+						</div>
+						<div class="card-stacked">
+							<!-- Add more lines here for shop data/location/open/closed/address etc. -->
+							<div class="card-content">
+								<p id="name">I am a very simple card. I am good at containing small bits of information.</p>
+							</div>
+						</div>
+					</div>
+					<!-- Shop data 2 -->
+					<div class="card horizontal">
+						<div class="card-image" id="shopimg2">
+							<img src="https://lorempixel.com/100/150/nature/6">
+						</div>
+						<div class="card-stacked">
+							<!-- Add more lines here for shop data/location/open/closed/address etc. -->
+							<div class="card-content">
+								<p id="name">I am a very simple card. I am good at containing small bits of information.</p>
+							</div>
+						</div>
+					</div>
+					<!-- Shop data 3 -->
+					<div class="card horizontal">
+						<div class="card-image" id="shopimg3">
+							<img src="https://lorempixel.com/100/150/nature/6">
+						</div>
+						<div class="card-stacked">
+							<!-- Add more lines here for shop data/location/open/closed/address etc. -->
+							<div class="card-content">
+								<p>I am a very simple card. I am good at containing small bits of information.</p>
+							</div>
+						</div>
+					</div>
+					<!-- Shop data 4 -->
+					<div class="card horizontal">
+						<div class="card-image" id="shopimg4">
+							<img src="https://lorempixel.com/100/150/nature/6">
+						</div>
+						<div class="card-stacked">
+							<!-- Add more lines here for shop data/location/open/closed/address etc. -->
+							<div class="card-content">
+								<p>I am a very simple card. I am good at containing small bits of information.</p>
+							</div>
+						</div>
+					</div>
+					<!--shop data 5-->
+						<div class="card horizontal">
+							<div class="card-image" id="shopimg5">
+								<img src="https://lorempixel.com/100/150/nature/6">
+							</div>
+							<div class="card-stacked">
+								<!-- Add more lines here for shop data/location/open/closed/address etc. -->
+								<div class="card-content">
+									<p>I am a very simple card. I am good at containing small bits of information.</p>
+								</div>
+							</div>
+						</div>
+					
+				</div>
+				<!-- this is column 2 -->
+				<div class="col s6 m6">
+					<h4 class="header text center white-text" id = "cityDisplay">Utah</h4>
+					<div class="card" id="shopimg2">
+						<div class="card-image">
+								<img id="imageDisplay" src="">
+							<!-- <img src="#" id = "imageDisplay"> -->
+				   		</div>
+						<div class="card-stacked">
+							<!-- Add more lines here for shop data/location/open/closed/address etc. -->
+							<div class="card-content text center">
+								<p id="currentTemp">Current Temperature: <span id="temperatureDisplay">Temp 65 F</span> F</p>
+							</div>
+							<div class="card-content text center">
+								<p id="phrase"><span id="phraseDisplay">Light Jacket, Sit Outside</span></p>
+						</div>
+						<div class="card-content text center">
+								<p id="maxTemp">Max Temperature: <span id="maxTempDisplay">35 F</span> F</p>	
+					</div>
+					<div class="card-content text center">
+							<p id="minTemp">Min Temperature: <span id="minTempDisplay">35 F</span> F</p>
+				</div>
+					    </div>
+					</div>
+				</div>
+			</div>
+		</div>
+    <body>
+      <div class="container-fluid">
+        <div class="header">
+          <h1>Random Song Generator</h1>
+          <h3>With Lyrics</h3>
+        </div>
+        
+        <div class="body">
+          <div class = "main">
+          <div class ="song" >
+            <iframe id = "song1" src=""></iframe>
+          </div>
+          
+          <div class ="lyrics" id= "twitter-wjs">
+            <iframe id = "lyrics1" src="" height = "auto" ></iframe>
+          </div>
+          </div>
+          <div class="button">
+            <button onclick="GetSong()">Get Song!</button>
+            <div class="row">
+            <a class="twitter-share-button"
+      href="https://twitter.com/intent/tweet?text=Hello%20world"
+      data-size="large">
+    Tweet</a>
+            </div>
+         </div>
       </div>
-    </nav>
-  </div>
-  <br />
-  <div class="container text center">
-    <div>
-      <h4>Holder div for description</h4>
-    </div>
-  </div>
-  <br />
+    
 
-  <div class="container">
-    <div class="row">
-      <form class="col s12">
-        <div class="row">
-          <div class="input-field col s10">
-            <i class="material-icons prefix">mail_outline</i>
-            <input id="zipcode" type="text" class="validate" />
-            <label for="zipcode">Zip Code</label>
-          </div>
-          <a href="#" class="btn-small" id="subbutton">Submit</a>
-        </div>
-      </form>
-    </div>
-  </div>
-  <br>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script rel="text/javascript" src="./assets/javascript/app.js"></script>
+		<script rel="text/javascript" src="./assets/javascript/maps.js"></script>
 
-  <!-- Here I am trying out the cards to replace the two divs above -->
-  <div class="container">
-    <div class="row">
-      <!-- this is column 1 -->
-      <div class="col s6 m6">
-        <h4 class="header text center">Find Yur Hipsters Here</h4>
-        <!-- Shop data 1 -->
-        <div class="card horizontal">
-          <div class="card-image" id="shopimg1">
-            <img src="https://lorempixel.com/100/150/nature/6">
-          </div>
-          <div class="card-stacked">
-            <!-- Add more lines here for shop data/location/open/closed/address etc. -->
-            <div class="card-content">
-              <p>I am a very simple card. I am good at containing small bits of information.</p>
-            </div>
-          </div>
-        </div>
-        <!-- Shop data 2 -->
-        <div class="card horizontal">
-          <div class="card-image" id="shopimg2">
-            <img src="https://lorempixel.com/100/150/nature/6">
-          </div>
-          <div class="card-stacked">
-            <!-- Add more lines here for shop data/location/open/closed/address etc. -->
-            <div class="card-content">
-              <p>I am a very simple card. I am good at containing small bits of information.</p>
-            </div>
-          </div>
-        </div>
-        <!-- Shop data 3 -->
-        <div class="card horizontal">
-          <div class="card-image" id="shopimg3">
-            <img src="https://lorempixel.com/100/150/nature/6">
-          </div>
-          <div class="card-stacked">
-            <!-- Add more lines here for shop data/location/open/closed/address etc. -->
-            <div class="card-content">
-              <p>I am a very simple card. I am good at containing small bits of information.</p>
-            </div>
-          </div>
-        </div>
-        <!-- Shop data 4 -->
-        <div class="card horizontal">
-          <div class="card-image" id="shopimg4">
-            <img src="https://lorempixel.com/100/150/nature/6">
-          </div>
-          <div class="card-stacked">
-            <!-- Add more lines here for shop data/location/open/closed/address etc. -->
-            <div class="card-content">
-              <p>I am a very simple card. I am good at containing small bits of information.</p>
-            </div>
-          </div>
-        </div>
-
-      </div>
-      <!-- this is column 2 -->
-      <div class="col s6 m6">
-        <h4 class="header text center">Light Jacket, Sit Outside</h4>
-        <div class="card" id="shopimg2">
-          <div class="card-image">
-            <img src="assets/images/sun.jpg">
-          </div>
-          <div class="card-stacked">
-            <!-- Add more lines here for shop data/location/open/closed/address etc. -->
-            <div class="card-content text center">
-              <p>
-                <h3>Temp 65, Partly Cloudy</h3>
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-
-  <!-- 4square ajax test -->
-  <div id="4square">
-  </div>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script rel="text/javascript" src="./assets/javascript/app.js"></script>
-  <script rel="text/javascript" src="./assets/javascript/maps.js"></script>
-
-</body>
-
+	</body>
 </html>
