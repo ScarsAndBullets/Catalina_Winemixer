@@ -17,11 +17,11 @@ console.log(queryURL);
 function getWeather() {
 	$.ajax({
 		url: queryURL,
-		method: "GET",
+		method: "GET"
 
-		headers: {
-			//"Access-Control-Allow-Origin": "*"
-		}
+		// headers: {
+		// 	"Access-Control-Allow-Origin": "*"
+		// }
 	}).then(function(response) {
 		ajaxResponse = response;
 		console.log(ajaxResponse);
@@ -50,8 +50,6 @@ function getWeather() {
 getWeather();
 
 $("#subbutton").on("click", function() {
-	getWeather();
-
 	zipcode = $("#zipcode").val();
 	console.log("Zipcode = " + zipcode);
 	queryURL =
@@ -84,6 +82,5 @@ $("#subbutton").on("click", function() {
 	$("#phraseDisplay").text(phrase);
 	$("#maxTempDisplay").text(tempMax);
 	$("#minTempDisplay").text(tempMin);
+	getWeather();
 });
-
-//getWeather();
