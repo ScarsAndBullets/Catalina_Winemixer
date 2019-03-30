@@ -39,10 +39,10 @@ function getWeather() {
 		console.log(weatherIcon);
 		iconIndex = weatherIcon;
 
-		$("#cityDisplay").text(city);
+		//$("#cityDisplay").text(city);
 		$("#imageDisplay").text(iconURL);
-		$("#temperatureDisplay").text(temperature);
 		$("#phraseDisplay").text(phrase);
+		$("#temperatureDisplay").text(temperature);	
 		$("#maxTempDisplay").text(tempMax);
 		$("#minTempDisplay").text(tempMin);
 	});
@@ -50,6 +50,7 @@ function getWeather() {
 getWeather();
 
 $("#subbutton").on("click", function() {
+
 	zipcode = $("#zipcode").val();
 	console.log("Zipcode = " + zipcode);
 	queryURL =
@@ -76,11 +77,14 @@ $("#subbutton").on("click", function() {
 	iconIndex = weatherIcon;
 	console.log(iconURL);
 
-	$("#cityDisplay").text(city);
+	//$("#cityDisplay").text(city);
 	$("#imageDisplay").text(iconURL);
-	$("#temperatureDisplay").text(temperature);
 	$("#phraseDisplay").text(phrase);
+	$("#temperatureDisplay").text(temperature);	
 	$("#maxTempDisplay").text(tempMax);
 	$("#minTempDisplay").text(tempMin);
+
 	getWeather();
 });
+
+
