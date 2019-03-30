@@ -5,7 +5,6 @@ body {
     background-attachment: fixed; /* fixing the background */
 }
 
-<<<<<<< HEAD
 #label {
     color: black;  
 }
@@ -46,70 +45,3 @@ h3 {
           transform:rotate(360deg);
       }
 } */
-=======
-.header{
-    text-align: center;
-    
-  }
-  .main{
-    display:block;
-  
-  }
-  .song{
-    height: 300px;
-    width: 33%;
-    float: left;
-    border: solid 1px;
-    margin-left: 5%;
-  }
-  
-  .lyrics{
-    height: 300px;
-    width: 33%;
-    float: right;
-    border: solid 1px;
-    margin-right: 5%;
-    
-  }
-  .button{
-    diplay: block;
-    position: absolute;
-    margin-top: 10%;
-    margin-left: 44%;
-  }
-  
-  button{
-    border-radius: 10px;
-    padding: 20px 25px;
-    margin-right: 5px;
-    background-color: green;
-    color: yellow;
-    font-size: 20px;
-    
-  }
-  
-  .row{
-    margin-top: 15px;
-    padding-left: 15px;
-  }
-  
-  h1, h3{
-    text-shadow: 2px 2px orange; 
-    color: darkblue;
-  }
-  
-  ::-webkit-scrollbar 
-  {
-      width: 40px;
-      background-color:#4F4F4F;
-  }
-  
-  ::-webkit-scrollbar-button:vertical:increment 
-  {
-      height:40px;
-      background-image: url(/Images/Scrollbar/decrement.png);
-      background-size:39px 30px;
-      background-repeat:no-repeat;
-  }
-  
->>>>>>> b2304cfad6dd8422ff18b566ebc2f6778e0c6fd7
