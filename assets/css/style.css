@@ -1,6 +1,47 @@
 body {
-    background-image: url("../images/record.png");
+    background-image: url("../images/record05.png");
     background-position: center; /* Center the image */
     background-repeat: no-repeat; /* Do not repeat the image */
     background-attachment: fixed; /* fixing the background */
 }
+
+#label {
+    color: black;  
+}
+
+/* #inputfield {
+    text-decoration-color: black;  
+} */
+
+.tab {
+    width: 40px;
+}
+
+h3 {
+    color: black;
+    font-size: 50px;
+} 
+
+
+/* #record {
+    width: 100px;
+    height: 100px;
+    background-color: #0CB1C4;
+    animation-name: spin;
+    animation-duration: 5000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear; 
+    transform: rotate(3deg);
+     transform: rotate(0.3rad);/
+     transform: rotate(3grad); 
+     transform: rotate(.03turn); 
+}
+  
+@keyframes spin {
+      from {
+          transform:rotate(0deg);
+      }
+      to {
+          transform:rotate(360deg);
+      }
+} */
