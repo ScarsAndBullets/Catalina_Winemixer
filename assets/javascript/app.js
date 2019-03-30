@@ -1,15 +1,18 @@
-//Venues Hardcode
-const clientID = "K1WLX4BKHD5EEE2JJADJTQWJYJB52IITFXVXUVULQSPWOHV4";
-const clientSecret = "31E2BSQMJPIPOPCR54K2DTNGD0ILZPW5AL5LM42JRCBNWAD0";
-const version = "20190326";
-var locationParam = "Riverton, UT";
-var venueParam = "coffee";
-var resultLimit = "5";
-var data;
-var photoLimit = "1";
-var venueID = "4b3b5794f964a520b27225e3";
+// This is our API key
+var weatherAPIKey = "f1e6ff86df990396171c136a8458725c";
+var zipcode = "84110";
+var ajaxResponse;
+var queryURL =
+	"http://api.openweathermap.org/data/2.5/weather?zip=" +
+	zipcode +
+	"&APPID=" +
+	weatherAPIKey +
+	"&units=imperial";
+var iconIndex = "";
+var iconURL =
+	"<img src='http://openweathermap.org/img/w/" + iconIndex + ".png'>";
 
-var queryURL = `https://api.foursquare.com/v2/venues/search?near=${locationParam}&query=${venueParam}&client_id=${clientID}&client_secret=${clientSecret}&v=${version}&limit=${resultLimit}`;
+//console.log(queryURL);
 
 var photoURL = `https://api.foursquare.com/v2/venues/VENUE_ID/photos?VENUE_ID=${venueID}&client_id=${clientID}&client_secret=${clientSecret}&limit=${photoLimit}&v=${version}`;
 console.log(photoURL);
@@ -24,28 +27,25 @@ function ajaxCall() {
 	$.ajax({
 		url: queryURL,
 		method: "GET"
-	})
-		// We store all of the retrieved data inside of an object called "response"
-		.then(function(response) {
-			data = response;
-			console.log(response);
-			console.log(response.response.venues[0].name);
-			console.log(
-				response.response.venues[0].location.formattedAddress[0]
-			);
-			console.log(
-				response.response.venues[0].location.formattedAddress[1]
-			);
-			populateVenues();
-		});
-}
-
-function addCity() {
-	$(`#cityDisplay`).text(data.response.geocode.feature.name);
-	console.log(
-		`4Sqaure data - city name${data.response.geocode.feature.name}`
-	);
-}
+		// headers: {
+		// 	"Access-Control-Allow-Origin": "*"
+		// }
+	}).then(function(response) {
+		ajaxResponse = response;
+		//console.log(ajaxResponse);
+		var city = response.name;
+		//console.log(city);
+		var temperature = response.main.temp;
+		//console.log(temperature);
+		var tempMax = response.main.temp_max;
+		//console.log(tempMax);
+		var tempMin = response.main.temp_min;
+		//console.log(tempMin);
+		var phrase = response.weather[0].description;
+		//console.log(phrase);
+		var weatherIcon = response.weather[0].icon;
+		//console.log(weatherIcon);
+		iconIndex = weatherIcon;
 
 function populateVenues() {
 	for (var i = 0; i < 5; i++) {
@@ -77,7 +77,20 @@ function GetSong() {
 
 	var rando = song[Math.floor(Math.random() * song.length)];
 
-	document.getElementById("song1").src = rando.song1;
+	var city = ajaxResponse.name;
+	//console.log(city);
+	var temperature = ajaxResponse.main.temp;
+	//console.log(temperature);
+	var tempMax = ajaxResponse.main.temp_max;
+	//console.log(tempMax);
+	var tempMin = ajaxResponse.main.temp_min;
+	//console.log(tempMin);
+	var phrase = ajaxResponse.weather[0].description;
+	//console.log(phrase);
+	var weatherIcon = ajaxResponse.weather[0].icon;
+	//console.log(weatherIcon);
+	iconIndex = weatherIcon;
+	//console.log(iconURL);
 
 	document.getElementById("lyrics1").src = rando.lyrics1;
 
