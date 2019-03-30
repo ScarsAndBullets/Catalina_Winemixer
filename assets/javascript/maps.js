@@ -8,15 +8,20 @@ var resultLimit = "5";
 
 var queryURL = `https://api.foursquare.com/v2/venues/search?near=${locationParam}&query=${venueParam}&client_id=${clientID}&client_secret=${clientSecret}&v=${version}&limit=${resultLimit}`;
 
-// Here we run our AJAX call to the OpenWeatherMap API
-$.ajax({
-	url: queryURL,
-	method: "GET"
-	// headers: {
-	// 	"Access-Control-Allow-Origin": "*"
-	//}
-})
-	// We store all of the retrieved data inside of an object called "response"
-	.then(function(response) {
-		console.log(response);
-	});
+$("#subbutton").on("click", function() {
+	locationParam = $("#zipcode").val();
+	console.log(`maps.js locationParam ${locationParam}`);
+	ajaxCall();
+});
+
+function ajaxCall() {
+	$.ajax({
+		url: queryURL,
+		method: "GET"
+	})
+		// We store all of the retrieved data inside of an object called "response"
+		.then(function(response) {
+			console.log(response);
+			console.log(response.response.venues[0].name);
+		});
+}
