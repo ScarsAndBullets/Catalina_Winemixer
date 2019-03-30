@@ -1,10 +1,16 @@
 // This is our API key
-var weatherAPIKey = "f1e6ff86df990396171c136a8458725c"
+var weatherAPIKey = "f1e6ff86df990396171c136a8458725c";
 var zipcode = "84115";
 var ajaxResponse;
-var queryURL = "http://api.openweathermap.org/data/2.5/weather?zip="+zipcode+"&APPID="+weatherAPIKey+"&units=imperial";
-var iconIndex = ""
-var iconURL = "<img src='http://openweathermap.org/img/w/" + iconIndex + ".png'>";
+var queryURL =
+	"http://api.openweathermap.org/data/2.5/weather?zip=" +
+	zipcode +
+	"&APPID=" +
+	weatherAPIKey +
+	"&units=imperial";
+var iconIndex = "";
+var iconURL =
+	"<img src='http://openweathermap.org/img/w/" + iconIndex + ".png'>";
 
 console.log(queryURL);
 
@@ -16,8 +22,7 @@ function getWeather() {
 		headers: {
 			//"Access-Control-Allow-Origin": "*"
 		}
-	})
-	.then(function(response) {
+	}).then(function(response) {
 		ajaxResponse = response;
 		console.log(ajaxResponse);
 		var city = response.name;
@@ -40,21 +45,24 @@ function getWeather() {
 		$("#temperatureDisplay").text(temperature);	
 		$("#maxTempDisplay").text(tempMax);
 		$("#minTempDisplay").text(tempMin);
-
 	});
-} 
-getWeather()
-
+}
+getWeather();
 
 $("#subbutton").on("click", function() {
+	
+	zipcode = $("#zipcode").val();
+	console.log("Zipcode = " + zipcode);
+	queryURL =
+		"http://api.openweathermap.org/data/2.5/weather?zip=" +
+		zipcode +
+		"&APPID=" +
+		weatherAPIKey +
+		"&units=imperial";
+	iconURL = "http://openweathermap.org/img/w/" + iconIndex + ".png";
+	//console.log("This is queryURL " + queryURL);
 
-  zipcode = $("#zipcode").val().trim();
-  console.log("Zipcode = " + zipcode);
-  queryURL = "http://api.openweathermap.org/data/2.5/weather?zip="+zipcode+"&APPID="+weatherAPIKey+"&units=imperial";
-  iconURL = "http://openweathermap.org/img/w/" + iconIndex + ".png";
-  //console.log("This is queryURL " + queryURL);
-  
-  	var city = ajaxResponse.name;
+	var city = ajaxResponse.name;
 	console.log(city);
 	var temperature = ajaxResponse.main.temp;
 	console.log(temperature);
@@ -76,10 +84,7 @@ $("#subbutton").on("click", function() {
 	$("#maxTempDisplay").text(tempMax);
 	$("#minTempDisplay").text(tempMin);
 
-	getWeather()
-
-	$("#zipcode").val("");
-  	  
+	getWeather();
 });
 
 
