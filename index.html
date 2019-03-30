@@ -21,40 +21,27 @@
 		<link rel="stylesheet" href="assets/css/style.css" />
 	</head>
 	<body>
-		<div class="container">
-			<nav>
+		<div id="record"></div>	
+		<div class="container center" id="topheader">
+			<!-- <nav> -->
 				<div class="nav-wrapper">
 					<a href="#" class="brand-logo">
-						<h4>
-							<i class="material-icons prefix">local_cafe</i
-							>Coffee and Weather<i class="material-icons prefix"
-								>cloud</i
-							>
-						</h4>
+						<h3><i class="material-icons prefix">local_cafe</i> Coffee and Weather <i class="material-icons prefix">cloud</i></h3>
 					</a>
-					<ul id="nav-mobile" class="right hide-on-med-and-down">
-						<li><a href="about.html">About</a></li>
-					</ul>
 				</div>
-			</nav>
+			<!-- </nav> -->
 		</div>
-
-		<br />
 		<div class="container text center">
-			<div>
-				<h4></h4>
-			</div>
-		</div>
-		<br/>
+		<br />
 
 		<div class="container">
 			<div class="row">
 				<form class="col s12">
 					<div class="row">
-						<div class="input-field col s10">
-							<i class="material-icons prefix">mail_outline</i>
-							<input id="zipcode" type="text" class="validate" />
-							<label for="zipcode">Zip Code</label>
+						<div class="input-field col s10 black-text">
+							<i class="material-icons black-text prefix">mail_outline</i>
+							<input id="zipcode" type="text" class="validate black-text" />
+							<label for="zipcode" id="label">Zip Code</label>
 						</div>
 						<a href="#" class="btn-small" id="subbutton">Submit</a>
 					</div>
@@ -167,44 +154,49 @@
 					</h4>
 					<div class="card" id="shopimg2">
 						<div class="card-image">
-							<img id="imageDisplay" src="" />
-							<!-- <img src="#" id = "imageDisplay"> -->
-						</div>
+								<img id="imageDisplay">
+						<!-- <img src="#" id = "imageDisplay"> -->
+				   		</div>
 						<div class="card-stacked">
-							<!-- Add more lines here for shop data/location/open/closed/address etc. -->
-							<div class="card-content text center">
-								<p id="currentTemp">
-									Current Temperature:
-									<span id="temperatureDisplay"
-										>Temp 65 F</span
-									>
-									F
-								</p>
+							<div class="row">
+								<!-- Add more lines here for shop data/location/open/closed/address etc. -->
+								<div class="card-content text center">
+									<p id="currentTemp">Current Temperature: <span id="temperatureDisplay">Temp 65 F</span> F</p>
+								</div>
+								<div class="card-content text center">
+									<p id="phrase"><span id="phraseDisplay">Light Jacket, Sit Outside</span></p>
+								</div>
 							</div>
-							<div class="card-content text center">
-								<p id="phrase">
-									<span id="phraseDisplay"
-										>Light Jacket, Sit Outside</span
-									>
-								</p>
+							<div class="card-tabs">
+								<ul class="tabs tabs-fixed-width">
+									<li class="tab">
+										<p id="maxTemp">Max Temp: <span id="maxTempDisplay">35 F</span> F</p>
+									</li>
+									<li class="tab">
+										<p id="minTemp">Min Temp: <span id="minTempDisplay">35 F</span> F</p>
+									</li>
+								</ul>
 							</div>
-							<div class="card-content text center">
-								<p id="maxTemp">
-									Max Temperature:
-									<span id="maxTempDisplay">35 F</span> F
-								</p>
-							</div>
-							<div class="card-content text center">
-								<p id="minTemp">
-									Min Temperature:
-									<span id="minTempDisplay">35 F</span> F
-								</p>
+						</div>
+					</div>
+					<!-- second card for music and memes -->
+					<div class="card" id="music-memes">
+						<div class="card" id="music-memes">
+							<div class="card-stacked">
+								<div class="card-content text center">
+									<p id="music">Music <span id="musicspan">Temp 65 F</span> F</p>
+								</div>
+								<div class="card-content text center">
+									<p id="meme"><span id="memespan">Meme</span></p>
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+
+    <!-- <body>
       <div class="container-fluid">
         <div class="header">
           <h1>Random Song Generator</h1>
@@ -230,10 +222,12 @@
     Tweet</a>
             </div>
          </div>
-      </div>
+      </div> -->
+
 
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-		<script rel="text/javascript" src="assets/javascript/maps.js"></script>
-		<script rel="text/javascript" src="assets/javascript/app.js"></script>
+		<script rel="text/javascript" src="./assets/javascript/app.js"></script>
+		<script rel="text/javascript" src="./assets/javascript/maps.js"></script>
+		<script rel="text/javascript" src="./assets/javascript/music.js"></script>
 	</body>
 </html>
