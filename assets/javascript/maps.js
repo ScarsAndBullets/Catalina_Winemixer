@@ -6,8 +6,13 @@ var locationParam = "Riverton, UT";
 var venueParam = "coffee";
 var resultLimit = "5";
 var data;
+var photoLimit = "1";
+var venueID = "4b3b5794f964a520b27225e3";
 
 var queryURL = `https://api.foursquare.com/v2/venues/search?near=${locationParam}&query=${venueParam}&client_id=${clientID}&client_secret=${clientSecret}&v=${version}&limit=${resultLimit}`;
+
+var photoURL = `https://api.foursquare.com/v2/venues/VENUE_ID/photos?VENUE_ID=${venueID}&client_id=${clientID}&client_secret=${clientSecret}&limit=${photoLimit}&v=${version}`;
+console.log(photoURL);
 
 $("#subbutton").on("click", function() {
 	locationParam = $("#zipcode").val();
