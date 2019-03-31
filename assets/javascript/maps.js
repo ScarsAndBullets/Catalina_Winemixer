@@ -47,6 +47,7 @@ $("#subbutton").click(function() {
 	locationParam = $("#zipcode").val();
 	console.log(`maps.js locationParam ${locationParam}`);
 	ajaxCall();
+
 });
 
 function ajaxCall() {
@@ -69,6 +70,7 @@ function ajaxCall() {
 			// 	response.response.venues[0].location.formattedAddress[1]
 			// );
 			populateVenues();
+		
 		});
 }
 
