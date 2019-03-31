@@ -1,3 +1,4 @@
+//$(document).ready(function(){
 // This is our API key
 var weatherAPIKey = "f1e6ff86df990396171c136a8458725c";
 var zipcode = "84110";
@@ -12,6 +13,7 @@ var iconIndex = "";
 var iconURL = "http://openweathermap.org/img/w/" + iconIndex + ".png";
 var currentTemperature = "";
 
+$(document).ready();
 
 //console.log(queryURL);
 
@@ -41,11 +43,11 @@ function getWeather() {
 		iconIndex = weatherIcon;
 
 		iconURL = "http://openweathermap.org/img/w/" + weatherIcon + ".png";
-	//console.log("This is queryURL " + queryURL);
+		//console.log("This is queryURL " + queryURL);
 
-		$('#imageDisplay').html("<img src=" + iconURL + ">");//$("#cityDisplay").text(city);
+		$("#imageDisplay").html("<img src=" + iconURL + ">"); //$("#cityDisplay").text(city);
 		$("#forecastDisplay").text(forecast);
-		$("#temperatureDisplay").text(temperature + "° F");	//opt,shift,8 to display degrees icon
+		$("#temperatureDisplay").text(temperature + "° F"); //opt,shift,8 to display degrees icon
 		$("#maxTempDisplay").text(tempMax + "° F"); //opt,shift,8 to display degrees icon
 		$("#minTempDisplay").text(tempMin + "° F"); //opt,shift,8 to display degrees icon
 		forecastUpdate();
@@ -53,13 +55,16 @@ function getWeather() {
 }
 getWeather();
 
-$("#subbutton").on("click", function() {
-
+$("#subbutton").on("click", function(event) {
+	event.preventDefault();
 	zipcode = $("#zipcode").val();
 	console.log("Zipcode = " + zipcode);
-	queryURL = "http://api.openweathermap.org/data/2.5/weather?zip=" +zipcode + "&APPID=" +weatherAPIKey +"&units=imperial";
-
-	
+	queryURL =
+		"http://api.openweathermap.org/data/2.5/weather?zip=" +
+		zipcode +
+		"&APPID=" +
+		weatherAPIKey +
+		"&units=imperial";
 
 	var city = ajaxResponse.name;
 	//console.log(city);
@@ -78,89 +83,53 @@ $("#subbutton").on("click", function() {
 	console.log(iconURL);
 	iconURL = "http://openweathermap.org/img/w/" + weatherIcon + ".png";
 	//console.log("This is queryURL " + queryURL);
-	
-	
-	$('#imageDisplay').html("<img src=" + iconURL + ">");
+
+	$("#imageDisplay").html("<img src=" + iconURL + ">");
 	$("#forecastDisplay").text(forecast);
-	$("#temperatureDisplay").text(temperature + "° F");	//opt,shift,8 to display degrees icon
+	$("#temperatureDisplay").text(temperature + "° F"); //opt,shift,8 to display degrees icon
 	$("#maxTempDisplay").text(tempMax + "° F"); //opt,shift,8 to display degrees icon
-	$("#minTempDisplay").text(tempMin + "° F"); 
-	$("#zipcode").val("");
+	$("#minTempDisplay").text(tempMin + "° F");
+	//$("#zipcode").val("");
 	$("#currentTemperature").val("");
 	getWeather();
-	
-	});
+});
 
-	function forecastUpdate()
-	{
-		
-		if (currentTemperature < 20)
-		{
-			$("#phraseDisplay").text("It's too damn cold, stay home and drink coffee");
-		}
-		else if (currentTemperature > 20 && currentTemperature < 40)
-		{
-			$("#phraseDisplay").text("Jacket.");
-		}
-		else if (currentTemperature > 40 && currentTemperature < 60)
-		{
-			$("#phraseDisplay").text("Light Jaket, Sit Outside");
-		}
-		else if (currentTemperature > 60 && currentTemperature < 80)
-		{
-			$("#phraseDisplay").text("Shorts, Sandals & Tanktop");
-		}
-		else if (currentTemperature >75)
-		{
-			$("#phraseDisplay").text("Shorts, Sandals and Tanktop, Sunscreen");
-		}
-		else
-		{
-			$("#phraseDisplay").text("Good Luck");
-		}
-
-		if (forecast = "clear sky")
-		{
-			$("#phraseDisplay").append("Enjoy the Weather");
-		}
-		else if (forecast = "few clouds")
-		{
-			$("#phraseDisplay").append("few clouds");	
-		}
-		else if (forecast = "scattered clouds")
-		{
-			$("#phraseDisplay").append("scattered clouds");	
-		}
-		else if (forecast = "broken clouds")
-		{
-			$("#phraseDisplay").append("broken clouds");	
-		}
-		else if (forecast = "shower rain")
-		{
-			$("#phraseDisplay").append("shower rain");	
-		}
-		else if (forecast = "rain")
-		{
-			$("#phraseDisplay").append("rain");	
-		}
-		else if (forecast = "thunderstorm")
-		{
-			$("#phraseDisplay").append("thunderstorm");	
-		}
-		else if (forecast = "snow")
-		{
-			$("#phraseDisplay").append("snow");	
-		}
-		else if (forecast = "mist")
-		{
-			$("#phraseDisplay").append("mist");	
-		}
-		else
-		{
-			$("#phraseDisplay").append("Do Whatever You Want");
-		}
-
+function forecastUpdate() {
+	if (currentTemperature < 20) {
+		$("#phraseDisplay").text(
+			"It's too damn cold, stay home and drink coffee"
+		);
+	} else if (currentTemperature > 20 && currentTemperature < 40) {
+		$("#phraseDisplay").text("Jacket.");
+	} else if (currentTemperature > 40 && currentTemperature < 60) {
+		$("#phraseDisplay").text("Light Jaket, Sit Outside");
+	} else if (currentTemperature > 60 && currentTemperature < 80) {
+		$("#phraseDisplay").text("Shorts, Sandals & Tanktop");
+	} else if (currentTemperature > 75) {
+		$("#phraseDisplay").text("Shorts, Sandals and Tanktop, Sunscreen");
+	} else {
+		$("#phraseDisplay").text("Good Luck");
 	}
 
-
-
+	if ((forecast = "clear sky")) {
+		$("#phraseDisplay").append("Enjoy the Weather");
+	} else if ((forecast = "few clouds")) {
+		$("#phraseDisplay").append("few clouds");
+	} else if ((forecast = "scattered clouds")) {
+		$("#phraseDisplay").append("scattered clouds");
+	} else if ((forecast = "broken clouds")) {
+		$("#phraseDisplay").append("broken clouds");
+	} else if ((forecast = "shower rain")) {
+		$("#phraseDisplay").append("shower rain");
+	} else if ((forecast = "rain")) {
+		$("#phraseDisplay").append("rain");
+	} else if ((forecast = "thunderstorm")) {
+		$("#phraseDisplay").append("thunderstorm");
+	} else if ((forecast = "snow")) {
+		$("#phraseDisplay").append("snow");
+	} else if ((forecast = "mist")) {
+		$("#phraseDisplay").append("mist");
+	} else {
+		$("#phraseDisplay").append("Do Whatever You Want");
+	}
+}
