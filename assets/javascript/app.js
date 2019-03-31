@@ -1,3 +1,4 @@
+//$(document).ready(function(){
 // This is our API key
 var weatherAPIKey = "f1e6ff86df990396171c136a8458725c";
 var zipcode = "84110";
