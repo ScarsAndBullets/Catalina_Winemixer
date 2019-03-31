@@ -1,3 +1,4 @@
+//$(document).ready(function(){
 // This is our API key
 var weatherAPIKey = "f1e6ff86df990396171c136a8458725c";
 var zipcode = "84110";
@@ -55,11 +56,11 @@ getWeather();
 
 $("#subbutton").on("click", function() {
 
+	event.preventDefault(event);
+
 	zipcode = $("#zipcode").val();
 	console.log("Zipcode = " + zipcode);
 	queryURL = "http://api.openweathermap.org/data/2.5/weather?zip=" +zipcode + "&APPID=" +weatherAPIKey +"&units=imperial";
-
-	
 
 	var city = ajaxResponse.name;
 	//console.log(city);
@@ -86,10 +87,12 @@ $("#subbutton").on("click", function() {
 	$("#maxTempDisplay").text(tempMax + "° F"); //opt,shift,8 to display degrees icon
 	$("#minTempDisplay").text(tempMin + "° F"); 
 	$("#zipcode").val("");
-	$("#currentTemperature").val("");
+	//$("#currentTemperature").val("");
 	getWeather();
 	
 	});
+
+
 
 	function forecastUpdate()
 	{
@@ -163,5 +166,4 @@ $("#subbutton").on("click", function() {
 	}
 
 
-//some useful comments
-
+//}); //end of document.ready
