@@ -13,9 +13,13 @@ var queryURL = `https://api.foursquare.com/v2/venues/search?near=${locationParam
 
 //function to update variables
 function clickVenues() {
+	//console.log("clickVal start");
 	locationParam = $("#zipcode").val();
+	//console.log(locationParam);
 	venueParam = "coffee";
 	resultLimit = 5;
+	queryURL = `https://api.foursquare.com/v2/venues/search?near=${locationParam}&query=${venueParam}&client_id=${clientID}&client_secret=${clientSecret}&v=${version}&limit=${resultLimit}`;
+	//console.log("clickVal stop");
 }
 
 //FourSquare Venue Return Object
@@ -47,17 +51,22 @@ function populateVenues() {
 //Adds City to Weather widget
 function addCity() {
 	var city = data.response.geocode.feature.name;
-	console.log(`function addCity - 4Sqaure data - city name${city}`);
+	//console.log(`function addCity - 4Sqaure data - city name${city}`);
 	$(`#cityDisplay`).text(city);
 }
 
 //On Click Function - pull ZIP/City, ST, run AJAX call, display venue cards
-$("#subbutton").click(function() {
+$("#subbutton").click(function(event) {
+	event.preventDefault();
+	clickVenues();
 	ajaxCall();
-	$("#zipcode").val("");
+	//$("#zipcode").val("");
 });
 
 function ajaxCall() {
+	//console.log("Ajax start");
+	//console.log(queryURL);
+	//console.log(locationParam);
 	$.ajax({
 		url: queryURL,
 		method: "GET"
@@ -71,6 +80,7 @@ function ajaxCall() {
 			console.log(`Logging data object`);
 			console.log(data);
 		});
+	//console.log("Ajax stop");
 }
 
 //ajaxCall();
