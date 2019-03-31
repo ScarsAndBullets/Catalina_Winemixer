@@ -86,4 +86,5 @@ $("#subbutton").on("click", function() {
 	getWeather();
 });
 
+//some useful comments
 
