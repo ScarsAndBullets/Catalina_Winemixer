@@ -112,4 +112,6 @@ var colors = ["#3b609b", "#9b3b3b", "#3b9b81", "#7da5a4"];
 $(".button").click(function() {
 	var rand = Math.floor(Math.random() * colors.length);
 	$("body").css("background-color", colors[rand]);
-});
+}}
+
+
