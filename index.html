@@ -1,219 +1,239 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
-		<link rel="stylesheet" href="assets/css/reset.css" />
 
-		<link
-			href="https://fonts.googleapis.com/icon?family=Material+Icons"
-			rel="stylesheet"
-		/>
-		<!-- Compiled and minified CSS -->
-		<link
-			rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
-		/>
-		<!-- Compiled and minified JavaScript -->
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-		<title>Coffee and Weather</title>
-		<link rel="stylesheet" href="assets/css/style.css" />
-	</head>
-	<body>
-		<div id="record"></div>	
-		<div class="container center" id="topheader">
-			<!-- <nav> -->
-				<div class="nav-wrapper">
-					<a href="#" class="brand-logo">
-						<h3><i class="material-icons prefix">local_cafe</i> Coffee and Weather <i class="material-icons prefix">cloud</i></h3>
-					</a>
-				</div>
-			<!-- </nav> -->
-		</div>
-		<div class="container text center">
-		<br />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="stylesheet" href="assets/css/reset.css" />
 
-		<div class="container">
-			<div class="row">
-				<form class="col s12">
-					<div class="row">
-						<div class="input-field col s10 black-text">
-							<i class="material-icons black-text prefix">mail_outline</i>
-							<input id="zipcode" type="text" class="validate black-text" />
-							<label for="zipcode" id="label">Zip Code</label>
-						</div>
-						<a class="btn-small" id="subbutton">Submit</a>
-					</div>
-				</form>
-			</div>
-		</div>
-		<br />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <title>Coffee and Weather</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
 
-		<!-- Here I am trying out the cards to replace the two divs above -->
-		<div class="container">
-			<div class="row">
-				<!-- this is column 1 -->
-				<div class="col s6 m6">
-					<h4 class="header text center white-text">
-						Find Yr Hipsters Here
-					</h4>
-					<!-- Shop data 1 -->
+<body>
+  <div id="record"></div>
+  <div class="container center" id="topheader">
+    <!-- <nav> -->
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo">
+        <h3><i class="material-icons prefix">local_cafe</i> Coffee and Weather <i
+            class="material-icons prefix">cloud</i></h3>
+      </a>
+    </div>
+    <!-- </nav> -->
+  </div>
+  <div class="container text center">
+    <br />
 
-					<div class="dynamicCard"></div>
+    <div class="container">
+      <div class="row">
+        <form class="col s12">
+          <div class="row">
+            <div class="input-field col s10 black-text">
+              <i class="material-icons black-text prefix">mail_outline</i>
+              <input id="zipcode" type="text" class="validate black-text" />
+              <label for="zipcode" id="label">Zip Code</label>
+            </div>
+            <a class="btn-small" id="subbutton">Submit</a>
+          </div>
+        </form>
+      </div>
+    </div>
+    <br />
 
-					<div class="card horizontal">
-						<div class="card-image" id="shopimg1">
-							<img
-								src="https://lorempixel.com/100/150/nature/6"
-							/>
-						</div>
-						<div class="card-stacked">
-							<!-- Add more lines here for shop data/location/open/closed/address etc. -->
-							<div class="card-content" id="venue1">
-								<p id="name">
-									I am a very simple card. I am good at
-									containing small bits of information.
-								</p>
-							</div>
-						</div>
-					</div>
-					<!-- Shop data 2 -->
-					<div class="card horizontal">
-						<div class="card-image" id="shopimg2">
-							<img
-								src="https://lorempixel.com/100/150/nature/6"
-							/>
-						</div>
-						<div class="card-stacked">
-							<!-- Add more lines here for shop data/location/open/closed/address etc. -->
-							<div class="card-content" id="venue2">
-								<p id="name">
-									I am a very simple card. I am good at
-									containing small bits of information.
-								</p>
-							</div>
-						</div>
-					</div>
-					<!-- Shop data 3 -->
-					<div class="card horizontal">
-						<div class="card-image" id="shopimg3">
-							<img
-								src="https://lorempixel.com/100/150/nature/6"
-							/>
-						</div>
-						<div class="card-stacked">
-							<!-- Add more lines here for shop data/location/open/closed/address etc. -->
-							<div class="card-content" id="venue3">
-								<p>
-									I am a very simple card. I am good at
-									containing small bits of information.
-								</p>
-							</div>
-						</div>
-					</div>
-					<!-- Shop data 4 -->
-					<div class="card horizontal">
-						<div class="card-image" id="shopimg4">
-							<img
-								src="https://lorempixel.com/100/150/nature/6"
-							/>
-						</div>
-						<div class="card-stacked">
-							<!-- Add more lines here for shop data/location/open/closed/address etc. -->
-							<div class="card-content" id="venue4">
-								<p>
-									I am a very simple card. I am good at
-									containing small bits of information.
-								</p>
-							</div>
-						</div>
-					</div>
-					<!--shop data 5-->
-					<div class="card horizontal">
-						<div class="card-image" id="shopimg5">
-							<img
-								src="https://lorempixel.com/100/150/nature/6"
-							/>
-						</div>
-						<div class="card-stacked">
-							<!-- Add more lines here for shop data/location/open/closed/address etc. -->
-							<div class="card-content" id="venue5">
-								<p>
-									I am a very simple card. I am good at
-									containing small bits of information.
-								</p>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- this is column 2 -->
-				<div class="col s6 m6">
-					<h4 class="header text center white-text" id="cityDisplay">
-						Utah
-					</h4>
-					<div class="card" id="shopimgicon">
-						<div class="card-image">
-							<div id="imageDisplay"></div>
-				   		</div>
-						<div class="card-stacked">
-							<div class="row">
-								<!-- Add more lines here for shop data/location/open/closed/address etc. -->
-								<div class="card-content text center">
-									<p id="phrase"><span id="phraseDisplay"></span></p>
-								</div>
-								<div class="card-content text center">
-									<p id="currentTemp"><span id="temperatureDisplay">Current Temp Goes Here</span></p>
-									<p id="currentTemp">Current Temperature:</p>
-								</div>
-								<div class="card-content text center">
-									<p id="forecast"><span id="forecastDisplay">Forecast Goes Here</span></p>
-								</div>
-							</div>
-							<div class="card-tabs">
-								<ul class="tabs tabs-fixed-width">
-									<li class="tab">
-										<p id="maxTemp">Max Temp: <span id="maxTempDisplay">Max Temp Goes Here</span></p>
-									</li>
-									<li class="tab">
-										<p id="minTemp">Min Temp: <span id="minTempDisplay">Min Temp Goes Here</span></p>
-									</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-					<!-- second card for music and memes -->
-					<div class="card" id="musichead">
-						<div class="card" id="musiccard">
-							<div class="card-stacked">
-								<div class="card-content text center">
-									<p id="music">Music<span id="musicspan">Music</span> M</p>
-								</div>
-							</div>
-						</div>
-					</div>
-					<!-- card for meme -->
-					<div class="card" id="memehead">
-						<div class="card" id="memecard">
-							<div class="card-stacked">
-								<div class="card-content text center">
-									<br id="meme">
-										<!-- Added a button-->
-										<!-- Can we make this centered below everything? Some of the GIFs are large -->
-										<button id="bun-button"> Sun's down - Bun's down </button> 
-										<div id="memespan">Click for GIFs </div>
-									</p>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+    <!-- Here I am trying out the cards to replace the two divs above -->
+    <div class="container">
+      <div class="row">
+        <!-- this is column 1 -->
+        <div class="col s6 m6">
+          <h4 class="header text center white-text">
+            Sponsored By Coffee
+          </h4>
+          <!-- Shop data 1 -->
 
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-		<script rel="text/javascript" src="./assets/javascript/app.js"></script>
-		<script rel="text/javascript" src="./assets/javascript/maps.js"></script>
-		<script rel="text/javascript" src="./assets/javascript/music.js"></script>
-	</body>
+          <div class="dynamicCard"></div>
+
+          <div class="card horizontal">
+            <div class="card-image" id="shopimg1">
+              <img src="https://lorempixel.com/100/150/nature/6" />
+            </div>
+            <div class="card-stacked">
+              <!-- Add more lines here for shop data/location/open/closed/address etc. -->
+              <div class="card-content" id="venue1">
+                <p id="name">
+                  I am a very simple card. I am good at
+                  containing small bits of information.
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- Shop data 2 -->
+          <div class="card horizontal">
+            <div class="card-image" id="shopimg2">
+              <img src="https://lorempixel.com/100/150/nature/6" />
+            </div>
+            <div class="card-stacked">
+              <!-- Add more lines here for shop data/location/open/closed/address etc. -->
+              <div class="card-content" id="venue2">
+                <p id="name">
+                  I am a very simple card. I am good at
+                  containing small bits of information.
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- Shop data 3 -->
+          <div class="card horizontal">
+            <div class="card-image" id="shopimg3">
+              <img src="https://lorempixel.com/100/150/nature/6" />
+            </div>
+            <div class="card-stacked">
+              <!-- Add more lines here for shop data/location/open/closed/address etc. -->
+              <div class="card-content" id="venue3">
+                <p>
+                  I am a very simple card. I am good at
+                  containing small bits of information.
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- Shop data 4 -->
+          <div class="card horizontal">
+            <div class="card-image" id="shopimg4">
+              <img src="https://lorempixel.com/100/150/nature/6" />
+            </div>
+            <div class="card-stacked">
+              <!-- Add more lines here for shop data/location/open/closed/address etc. -->
+              <div class="card-content" id="venue4">
+                <p>
+                  I am a very simple card. I am good at
+                  containing small bits of information.
+                </p>
+              </div>
+            </div>
+          </div>
+          <!--shop data 5-->
+          <div class="card horizontal">
+            <div class="card-image" id="shopimg5">
+              <img src="https://lorempixel.com/100/150/nature/6" />
+            </div>
+            <div class="card-stacked">
+              <!-- Add more lines here for shop data/location/open/closed/address etc. -->
+              <div class="card-content" id="venue5">
+                <p>
+                  I am a very simple card. I am good at
+                  containing small bits of information.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- this is column 2 -->
+        <div class="col s6 m6">
+          <h4 class="header text center white-text" id="cityDisplay">
+            Utah
+          </h4>
+          <div class="card" id="shopimgicon">
+            <div class="card-image">
+              <div id="imageDisplay"></div>
+            </div>
+            <div class="card-stacked">
+              <div class="row">
+                <!-- Add more lines here for shop data/location/open/closed/address etc. -->
+                <div class="card-content text center">
+                  <p id="phrase"><span id="phraseDisplay"></span></p>
+                  <p id="phrase"><span id="phraseDisplay2"></span></p>
+                </div>
+                <div class="card-content text center">
+                  <p id="currentTemp"><span id="temperatureDisplay">Current Temp Goes Here</span></p>
+                  <p id="currentTemp">Current Temperature:</p>
+                </div>
+                <div class="card-content text center">
+                  <p id="forecast"><span id="forecastDisplay">Forecast Goes Here</span></p>
+                </div>
+              </div>
+              <div class="card-tabs">
+                <ul class="tabs tabs-fixed-width">
+                  <li class="tab">
+                    <p id="maxTemp">Max Temp: <span id="maxTempDisplay">Max Temp Goes Here</span></p>
+                  </li>
+                  <li class="tab">
+                    <p id="minTemp">Min Temp: <span id="minTempDisplay">Min Temp Goes Here</span></p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!-- second card for music and memes -->
+          <div class="card" id="musichead">
+            <div class="card" id="musiccard">
+              <div class="card-stacked">
+                <div class="card-content text center">
+                  <p id="music">Music<span id="musicspan">Music</span> M</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- card for meme -->
+          <div class="card" id="memehead">
+            <div class="card" id="memecard">
+              <div class="card-stacked">
+                <div class="card-content text center">
+                  <br id="meme">
+                  <!-- Added a button-->
+                  <!-- Can we make this centered below everything? Some of the GIFs are large -->
+                  <button id="bun-button"> Cute Shit B1tch! </button>
+                  <div id="memespan">Click for GIFs </div>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <link href="https://fonts.googleapis.com/css?family=Hammersmith+One" rel="stylesheet">
+    </head>
+
+    <body>
+      <div class="container-fluid">
+        <div class="row text-center">
+          <h2>GENIUS</h2>
+        </div>
+        <div class="row text-center">
+          <h3>RANDOM SONG GENERATOR</h3><br>
+        </div>
+        <div class="row text-center">
+          <div class="col-xs-6 text-right" id="songImage"></div>
+          <div class="col-xs-6 text-left">
+            <p id="song"></p>
+            <p id="artist"></p>
+            <p id="releaseDate"></p>
+            <button class="button" onclick="newRandomSong()"><span>NEW SONG</span></button>
+            <br>
+            <button class="button tweet" onclick="tweetSong()"><span>TWEET SONG <i
+                  class="fa fa-twitter"></i></span></button>
+
+
+          </div>
+        </div>
+        <!--<div class="row text-center">
+      <button class="button" onclick="newRandomSong()"><span>NEW SONG</span></button>
+    </div>-->
+      </div>
+    </body>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script rel="text/javascript" src="./assets/javascript/app.js"></script>
+    <script rel="text/javascript" src="./assets/javascript/maps.js"></script>
+    <script rel="text/javascript" src="./assets/javascript/music.js"></script>
+</body>
+
 </html>

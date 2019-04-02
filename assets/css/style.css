@@ -1,8 +1,10 @@
 body {
-    background-image: url("../images/spinningrecord.gif");
+    background-image: url("../images/record05.png");
     background-size: 100%; 
     background-repeat: no-repeat; /*~Do not repeat the image */
-    background-position: center; /* Center the image
+    background-position: center;
+    background-color: RGB(255, 255, 255) /* Center the image
+    
     background-attachment: fixed; /* fixing the background */
 }
 
@@ -38,7 +40,67 @@ h3 {
     color: blue;
 }
 
-
+body {
+    font-family: 'Hammersmith One', sans-serif;
+    background-color :RGB(255, 255, 100);
+  }
+  h2 {
+    font-size: 200%;
+    background-color :RGB(153, 167, 238);
+    text-shadow: 2px 2px RGB(255, 255, 255);
+  }
+  h3 {
+    font-size: 130%;
+  }
+  p{
+    font-size: 110%;
+  }
+  
+  a:link {
+      color: RGB(255, 20, 100);
+      text-decoration: none;
+  }
+  
+  .button {
+    font-family: 'Hammersmith One', sans-serif;
+    border-radius: 4px;
+    background-color: RGB(153, 167, 238);
+    border: none;
+    color: RGB(255, 255, 255);
+    text-align: center;
+    font-size: 150%;
+    padding: 5px;
+    width: 200px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+  }
+  .button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+  .button span:after {
+    content: '»';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+  }
+  
+  .button:hover span {
+    padding-right: 25px;
+  }
+  
+  .button:hover span:after {
+    opacity: 1;
+    right: 0;
+  }
+  .tweet{
+      background-color: RGB(255, 20, 100);
+  }
 
 
 /* #record {

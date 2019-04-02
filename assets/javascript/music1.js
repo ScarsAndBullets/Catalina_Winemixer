@@ -1,27 +1,4 @@
-$("#bun-button").on("click", function() {
-
-  var queryURL = "https://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=animals";
-  
-  $.ajax({
-    url: queryURL,
-    method: "GET"
-  })
-  
-    .then(function(response) {
-  
-      var imageUrl = response.data.image_original_url;
-  
-      var hipsterImage = $("<img>");
-  
-      hipsterImage.attr("src", imageUrl);
-      hipsterImage.attr("alt", "hipster image");
-      
-      $("#memespan").empty();
-      $("#memespan").append(hipsterImage);
-    });
-  });
-
-  var CLIENTID = "Eq8KSecb2Yz4Lq--EUjuGWH_8OifHCRwdwHr1ztKdLx5Qk_zCZG--AXPSQzMXhL-";
+var CLIENTID = "Eq8KSecb2Yz4Lq--EUjuGWH_8OifHCRwdwHr1ztKdLx5Qk_zCZG--AXPSQzMXhL-";
 var CLIENTSECRET = "-3Ynmxt9BZab3Qs5sbr_GdzGxXoGqSqbSISFuEQwquYeVm-5-A3nFIcgUOvDSY731GT-hhJtvTK5jYDccT7juQ";
 var accessToken= "?access_token=CXyFeSBw2lAdG41xkuU3LS6a_nwyxwwCz2dCkUohw-rw0C49x2HqP__6_4is5RPx";
 var API = "https://api.genius.com/search";
