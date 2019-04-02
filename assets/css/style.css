@@ -1,17 +1,14 @@
 body {
-    background-image: url("../images/record05.png");
-    background-position: center; /* Center the image */
-    background-repeat: no-repeat; /* Do not repeat the image */
+    background-image: url("../images/spinningrecord.gif");
+    background-size: 100%; 
+    background-repeat: no-repeat; /*~Do not repeat the image */
+    background-position: center; /* Center the image
     background-attachment: fixed; /* fixing the background */
 }
 
 #label {
     color: black;  
 }
-
-/* #inputfield {
-    text-decoration-color: black;  
-} */
 
 .tab {
     width: 40px;
@@ -21,6 +18,27 @@ h3 {
     color: black;
     font-size: 50px;
 } 
+#imageDisplay
+{
+    width: 330px;
+    height: 300px;
+}
+#temperatureDisplay
+{
+    font-size: 70px;
+}
+#forecastDisplay
+{
+    font-size: 40px;
+    color: blue;
+}
+#phraseDisplay
+{
+    font-size: 40px;
+    color: blue;
+}
+
+
 
 
 /* #record {
@@ -44,4 +62,4 @@ h3 {
       to {
           transform:rotate(360deg);
       }
-} */
+} */ 

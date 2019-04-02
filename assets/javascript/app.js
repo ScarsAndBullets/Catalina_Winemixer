@@ -1,3 +1,4 @@
+//$(document).ready(function(){
 // This is our API key
 var weatherAPIKey = "f1e6ff86df990396171c136a8458725c";
 var zipcode = "84110";
@@ -9,8 +10,10 @@ var queryURL =
 	weatherAPIKey +
 	"&units=imperial";
 var iconIndex = "";
-var iconURL =
-	"<img src='http://openweathermap.org/img/w/" + iconIndex + ".png'>";
+var iconURL = "http://openweathermap.org/img/w/" + iconIndex + ".png";
+var currentTemperature = "";
+
+$(document).ready();
 
 //console.log(queryURL);
 
@@ -35,14 +38,15 @@ function ajaxCall() {
 		//console.log(ajaxResponse);
 		var city = response.name;
 		//console.log(city);
-		var temperature = response.main.temp;
+		var temperature = Math.floor(response.main.temp);
+		currentTemperature = temperature;
 		//console.log(temperature);
-		var tempMax = response.main.temp_max;
+		var tempMax = Math.floor(response.main.temp_max);
 		//console.log(tempMax);
-		var tempMin = response.main.temp_min;
+		var tempMin = Math.floor(response.main.temp_min);
 		//console.log(tempMin);
-		var phrase = response.weather[0].description;
-		//console.log(phrase);
+		var forecast = response.weather[0].description;
+		//console.log(forecast);
 		var weatherIcon = response.weather[0].icon;
 		//console.log(weatherIcon);
 		iconIndex = weatherIcon;
@@ -79,16 +83,17 @@ function GetSong() {
 
 	var city = ajaxResponse.name;
 	//console.log(city);
-	var temperature = ajaxResponse.main.temp;
+	var temperature = Math.floor(ajaxResponse.main.temp);
+	currentTemperature = temperature;
 	//console.log(temperature);
-	var tempMax = ajaxResponse.main.temp_max;
+	var tempMax = Math.floor(ajaxResponse.main.temp_max);
 	//console.log(tempMax);
-	var tempMin = ajaxResponse.main.temp_min;
+	var tempMin = Math.floor(ajaxResponse.main.temp_min);
 	//console.log(tempMin);
-	var phrase = ajaxResponse.weather[0].description;
-	//console.log(phrase);
+	var forecast = ajaxResponse.weather[0].description;
+	//console.log(forecast);
 	var weatherIcon = ajaxResponse.weather[0].icon;
-	//console.log(weatherIcon);
+	console.log(weatherIcon);
 	iconIndex = weatherIcon;
 	//console.log(iconURL);
 

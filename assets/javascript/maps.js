@@ -1,60 +1,86 @@
-//Venues Hardcode
+//FourSquare authorization
 const clientID = "K1WLX4BKHD5EEE2JJADJTQWJYJB52IITFXVXUVULQSPWOHV4";
 const clientSecret = "31E2BSQMJPIPOPCR54K2DTNGD0ILZPW5AL5LM42JRCBNWAD0";
 const version = "20190326";
-var locationParam = "Riverton, UT";
+
+//FourSquare Venue Search variables
+var locationParam = "84088"; // <--- This should be a ZIP preferably
 var venueParam = "coffee";
-var resultLimit = "5";
+var resultLimit = 5;
+
+//FourSquare Venue Search URL
+var queryURL = `https://api.foursquare.com/v2/venues/search?near=${locationParam}&query=${venueParam}&client_id=${clientID}&client_secret=${clientSecret}&v=${version}&limit=${resultLimit}`;
+
+//function to update variables
+function clickVenues() {
+	//console.log("clickVal start");
+	locationParam = $("#zipcode").val();
+	//console.log(locationParam);
+	venueParam = "coffee";
+	resultLimit = 5;
+	queryURL = `https://api.foursquare.com/v2/venues/search?near=${locationParam}&query=${venueParam}&client_id=${clientID}&client_secret=${clientSecret}&v=${version}&limit=${resultLimit}`;
+	//console.log("clickVal stop");
+}
+
+//FourSquare Venue Return Object
 var data;
+
+//FourSquare Photo Search variable
 var photoLimit = "1";
 var venueID = "4b3b5794f964a520b27225e3";
 
-var queryURL = `https://api.foursquare.com/v2/venues/search?near=${locationParam}&query=${venueParam}&client_id=${clientID}&client_secret=${clientSecret}&v=${version}&limit=${resultLimit}`;
-
+//FourSquare Photo Search URL
 var photoURL = `https://api.foursquare.com/v2/venues/VENUE_ID/photos?VENUE_ID=${venueID}&client_id=${clientID}&client_secret=${clientSecret}&limit=${photoLimit}&v=${version}`;
-console.log(photoURL);
+//console.log(photoURL);
 
-$("#subbutton").on("click", function() {
-	locationParam = $("#zipcode").val();
-	console.log(`maps.js locationParam ${locationParam}`);
+var photoData;
+
+//Populate Venue Cards with Name and Address
+function populateVenues() {
+	for (var i = 0; i < resultLimit; i++) {
+		var venueName = data.response.venues[i].name;
+		var venueAddress1 =
+			data.response.venues[i].location.formattedAddress[0];
+		var venueAddress2 =
+			data.response.venues[i].location.formattedAddress[1];
+		$(`#venue${i + 1}`).html(`<h6><strong>${venueName}<hr>`);
+		$(`#venue${i + 1}`).append(`<p>${venueAddress1}<br>${venueAddress2}`);
+	}
+}
+
+//Adds City to Weather widget
+function addCity() {
+	var city = data.response.geocode.feature.name;
+	//console.log(`function addCity - 4Sqaure data - city name${city}`);
+	$(`#cityDisplay`).text(city);
+}
+
+//On Click Function - pull ZIP/City, ST, run AJAX call, display venue cards
+$("#subbutton").click(function(event) {
+	event.preventDefault();
+	clickVenues();
 	ajaxCall();
+	//$("#zipcode").val("");
 });
 
 function ajaxCall() {
+	//console.log("Ajax start");
+	//console.log(queryURL);
+	//console.log(locationParam);
 	$.ajax({
 		url: queryURL,
 		method: "GET"
 	})
-		// We store all of the retrieved data inside of an object called "response"
+
+		//Store API response in var data, run func populateVenues
 		.then(function(response) {
 			data = response;
-			console.log(response);
-			console.log(response.response.venues[0].name);
-			console.log(
-				response.response.venues[0].location.formattedAddress[0]
-			);
-			console.log(
-				response.response.venues[0].location.formattedAddress[1]
-			);
 			populateVenues();
+			addCity();
+			console.log(`Logging data object`);
+			console.log(data);
 		});
+	//console.log("Ajax stop");
 }
 
-function addCity() {
-	$(`#cityDisplay`).text(data.response.geocode.feature.name);
-	console.log(
-		`4Sqaure data - city name${data.response.geocode.feature.name}`
-	);
-}
-
-function populateVenues() {
-	for (var i = 0; i < 5; i++) {
-		$(`#venue${i + 1}`).html(`<h6><strong>${data.response.venues[i].name}`);
-		$(`#venue${i + 1}`).append(
-			`<p>${data.response.venues[i].location.formattedAddress[0]}</br>${
-				data.response.venues[i].location.formattedAddress[1]
-			}`
-		);
-	}
-}
-
+//ajaxCall();
