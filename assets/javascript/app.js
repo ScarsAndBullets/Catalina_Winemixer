@@ -17,16 +17,7 @@ $(document).ready();
 
 //console.log(queryURL);
 
-var photoURL = `https://api.foursquare.com/v2/venues/VENUE_ID/photos?VENUE_ID=${venueID}&client_id=${clientID}&client_secret=${clientSecret}&limit=${photoLimit}&v=${version}`;
-console.log(photoURL);
-
-$("#subbutton").on("click", function() {
-	locationParam = $("#zipcode").val();
-	console.log(`maps.js locationParam ${locationParam}`);
-	ajaxCall();
-});
-
-function ajaxCall() {
+function getWeather() {
 	$.ajax({
 		url: queryURL,
 		method: "GET"
@@ -51,35 +42,29 @@ function ajaxCall() {
 		//console.log(weatherIcon);
 		iconIndex = weatherIcon;
 
-function populateVenues() {
-	for (var i = 0; i < 5; i++) {
-		$(`#venue${i + 1}`).html(`<h6><strong>${data.response.venues[i].name}`);
-		$(`#venue${i + 1}`).append(
-			`<p>${data.response.venues[i].location.formattedAddress[0]}</br>${
-				data.response.venues[i].location.formattedAddress[1]
-			}`
-		);
-	}
+		iconURL = "http://openweathermap.org/img/w/" + weatherIcon + ".png";
+		//console.log("This is queryURL " + queryURL);
+
+		$("#imageDisplay").html("<img src=" + iconURL + ">"); //$("#cityDisplay").text(city);
+		$("#forecastDisplay").text(forecast);
+		$("#temperatureDisplay").text(temperature + "° F"); //opt,shift,8 to display degrees icon
+		$("#maxTempDisplay").text(tempMax + "° F"); //opt,shift,8 to display degrees icon
+		$("#minTempDisplay").text(tempMin + "° F"); //opt,shift,8 to display degrees icon
+		forecastUpdate();
+	});
 }
+getWeather();
 
-function GetSong() {
-	var song = [
-		{
-			song1: "https://www.youtube.com/embed/0IJfbsN7fpU",
-			lyrics1: "http://www.azlyrics.com/lyrics/glassanimals/gooey.html"
-		},
-		{
-			song1: "https://www.youtube.com/embed/hi4pzKvuEQM",
-			lyrics1: "http://www.azlyrics.com/lyrics/chetfaker/gold.html"
-		},
-		{
-			song1: "https://www.youtube.com/embed/DZ6yrWkdaJw",
-			lyrics1:
-				"http://www.bmichellepippin.com/wp-content/uploads/2012/06/633800769542445665-CAPTAINOBVIOUS.jpg"
-		}
-	];
-
-	var rando = song[Math.floor(Math.random() * song.length)];
+$("#subbutton").on("click", function(event) {
+	event.preventDefault();
+	zipcode = $("#zipcode").val();
+	console.log("Zipcode = " + zipcode);
+	queryURL =
+		"http://api.openweathermap.org/data/2.5/weather?zip=" +
+		zipcode +
+		"&APPID=" +
+		weatherAPIKey +
+		"&units=imperial";
 
 	var city = ajaxResponse.name;
 	//console.log(city);
@@ -95,23 +80,56 @@ function GetSong() {
 	var weatherIcon = ajaxResponse.weather[0].icon;
 	console.log(weatherIcon);
 	iconIndex = weatherIcon;
-	//console.log(iconURL);
+	console.log(iconURL);
+	iconURL = "http://openweathermap.org/img/w/" + weatherIcon + ".png";
+	//console.log("This is queryURL " + queryURL);
 
-	document.getElementById("lyrics1").src = rando.lyrics1;
+	$("#imageDisplay").html("<img src=" + iconURL + ">");
+	$("#forecastDisplay").text(forecast);
+	$("#temperatureDisplay").text(temperature + "° F"); //opt,shift,8 to display degrees icon
+	$("#maxTempDisplay").text(tempMax + "° F"); //opt,shift,8 to display degrees icon
+	$("#minTempDisplay").text(tempMin + "° F");
+	//$("#zipcode").val("");
+	$("#currentTemperature").val("");
+	getWeather();
+});
 
-	document.getElementById("lyrics1").height = "100%";
-	document.getElementById("lyrics1").width = "100%";
+function forecastUpdate() {
+	if (currentTemperature < 20) {
+		$("#phraseDisplay").text(
+			"It's too damn cold, stay home and drink coffee"
+		);
+	} else if (currentTemperature > 20 && currentTemperature < 40) {
+		$("#phraseDisplay").text("Jacket.");
+	} else if (currentTemperature > 40 && currentTemperature < 60) {
+		$("#phraseDisplay").text("Light Jaket, Sit Outside");
+	} else if (currentTemperature > 60 && currentTemperature < 80) {
+		$("#phraseDisplay").text("Shorts, Sandals & Tanktop");
+	} else if (currentTemperature > 75) {
+		$("#phraseDisplay").text("Shorts, Sandals and Tanktop, Sunscreen");
+	} else {
+		$("#phraseDisplay").text("Good Luck");
+	}
 
-	document.getElementById("song1").height = "100%";
-	document.getElementById("song1").width = "100%";
-
+	if ((forecast = "clear sky")) {
+		$("#phraseDisplay").append("Enjoy the Weather");
+	} else if ((forecast = "few clouds")) {
+		$("#phraseDisplay").append("few clouds");
+	} else if ((forecast = "scattered clouds")) {
+		$("#phraseDisplay").append("scattered clouds");
+	} else if ((forecast = "broken clouds")) {
+		$("#phraseDisplay").append("broken clouds");
+	} else if ((forecast = "shower rain")) {
+		$("#phraseDisplay").append("shower rain");
+	} else if ((forecast = "rain")) {
+		$("#phraseDisplay").append("rain");
+	} else if ((forecast = "thunderstorm")) {
+		$("#phraseDisplay").append("thunderstorm");
+	} else if ((forecast = "snow")) {
+		$("#phraseDisplay").append("snow");
+	} else if ((forecast = "mist")) {
+		$("#phraseDisplay").append("mist");
+	} else {
+		$("#phraseDisplay").append("Do Whatever You Want");
+	}
 }
-
-var colors = ["#3b609b", "#9b3b3b", "#3b9b81", "#7da5a4"];
-
-$(".button").click(function() {
-	var rand = Math.floor(Math.random() * colors.length);
-	$("body").css("background-color", colors[rand]);
-}}
-
-
