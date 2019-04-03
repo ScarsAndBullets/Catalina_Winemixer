@@ -4,13 +4,13 @@ var weatherAPIKey = "f1e6ff86df990396171c136a8458725c";
 var zipcode = "84110";
 var ajaxResponse;
 var queryURL =
-	"http://api.openweathermap.org/data/2.5/weather?zip=" +
+	"https://api.openweathermap.org/data/2.5/weather?zip=" +
 	zipcode +
 	"&APPID=" +
 	weatherAPIKey +
 	"&units=imperial";
 var iconIndex = "";
-var iconURL = "http://openweathermap.org/img/w/" + iconIndex + ".png";
+var iconURL = "https://openweathermap.org/img/w/" + iconIndex + ".png";
 var currentTemperature = "";
 
 $(document).ready();
@@ -60,7 +60,7 @@ $("#subbutton").on("click", function(event) {
 	zipcode = $("#zipcode").val();
 	console.log("Zipcode = " + zipcode);
 	queryURL =
-		"http://api.openweathermap.org/data/2.5/weather?zip=" +
+		"https://api.openweathermap.org/data/2.5/weather?zip=" +
 		zipcode +
 		"&APPID=" +
 		weatherAPIKey +
@@ -81,7 +81,7 @@ $("#subbutton").on("click", function(event) {
 	console.log(weatherIcon);
 	iconIndex = weatherIcon;
 	console.log(iconURL);
-	iconURL = "http://openweathermap.org/img/w/" + weatherIcon + ".png";
+	iconURL = "https://openweathermap.org/img/w/" + weatherIcon + ".png";
 	//console.log("This is queryURL " + queryURL);
 
 	$("#imageDisplay").html("<img src=" + iconURL + ">");
