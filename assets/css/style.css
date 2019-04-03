@@ -39,6 +39,11 @@ h3 {
     font-size: 40px;
     color: blue;
 }
+#phraseDisplay
+{
+    font-size: 30px;
+    color: lightblue;
+}
 
 body {
     font-family: 'Hammersmith One', sans-serif;
