@@ -42,7 +42,7 @@ function getWeather() {
 		//console.log(weatherIcon);
 		iconIndex = weatherIcon;
 
-		iconURL = "http://openweathermap.org/img/w/" + weatherIcon + ".png";
+		iconURL = "https://openweathermap.org/img/w/" + weatherIcon + ".png";
 		//console.log("This is queryURL " + queryURL);
 
 		$("#imageDisplay").html("<img src=" + iconURL + ">"); //$("#cityDisplay").text(city);
@@ -96,40 +96,66 @@ $("#subbutton").on("click", function(event) {
 
 function forecastUpdate() {
 	if (currentTemperature < 20) {
-		$("#phraseDisplay").text(
-			"It's too damn cold, stay home and drink coffee"
-		);
+		$("#phraseDisplay").text(`
+			If you enjoy this weather, your national animal is the beaver, and NO it is NOT a noble creature.
+		`);
 	} else if (currentTemperature > 20 && currentTemperature < 40) {
-		$("#phraseDisplay").text("Jacket.");
+		$("#phraseDisplay").text(
+			"Don't worry, it will warm up soon - like in three months I think. "
+		);
 	} else if (currentTemperature > 40 && currentTemperature < 60) {
-		$("#phraseDisplay").text("Light Jaket, Sit Outside");
+		$("#phraseDisplay").text(
+			"That slouchy beanie won't be unbearably (and ironically) uncomfortable."
+		);
 	} else if (currentTemperature > 60 && currentTemperature < 80) {
-		$("#phraseDisplay").text("Shorts, Sandals & Tanktop");
+		$("#phraseDisplay").text(
+			"This temperature is great - why haven't I moved to California? Oh right, it's full of Californians..."
+		);
 	} else if (currentTemperature > 75) {
-		$("#phraseDisplay").text("Shorts, Sandals and Tanktop, Sunscreen");
+		$("#phraseDisplay").text(
+			"Better shave your back - just in case you decide to hit the beach..."
+		);
 	} else {
-		$("#phraseDisplay").text("Good Luck");
+		$("#phraseDisplay").text(
+			"Good Luck, and may God have mercy on your soul"
+		);
 	}
 
 	if ((forecast = "clear sky")) {
-		$("#phraseDisplay").append("Enjoy the Weather");
+		$("#phraseDisplay2").text("Clear skies... what's the catch?");
 	} else if ((forecast = "few clouds")) {
-		$("#phraseDisplay").append("few clouds");
+		$("#phraseDisplay2").text("A few clouds, you'll barely notice them.");
 	} else if ((forecast = "scattered clouds")) {
-		$("#phraseDisplay").append("scattered clouds");
+		$("#phraseDisplay2").text(
+			"Scattered clouds... like a toddler's shoes randomly arranged throughout the house "
+		);
 	} else if ((forecast = "broken clouds")) {
-		$("#phraseDisplay").append("broken clouds");
+		$("#phraseDisplay2").text(
+			"Broken clouds... which means you might see the sun today if you're lucky. "
+		);
+	} else if ((forecast = "light rain")) {
+		$("#phraseDisplay2").text(
+			"A light drizzle, my nizzle. Are Snoop Dogg jokes still relevant?"
+		);
 	} else if ((forecast = "shower rain")) {
-		$("#phraseDisplay").append("shower rain");
+		$("#phraseDisplay2").text(
+			"Shower rain - just like taking a shower, except the water is cold and you're fully clothed."
+		);
 	} else if ((forecast = "rain")) {
-		$("#phraseDisplay").append("rain");
+		$("#phraseDisplay2").text("Rain - yeah, you're going to get wet.");
 	} else if ((forecast = "thunderstorm")) {
-		$("#phraseDisplay").append("thunderstorm");
+		$("#phraseDisplay2").text(
+			"Thunderstorm - you're going to get wet and your dog is going to freak out."
+		);
 	} else if ((forecast = "snow")) {
-		$("#phraseDisplay").append("snow");
+		$("#phraseDisplay2").text(
+			"Snow - if it's December 24th, it's enchanting. If it's March, you might want to burn this whole mother#$%#^ down."
+		);
 	} else if ((forecast = "mist")) {
-		$("#phraseDisplay").append("mist");
+		$("#phraseDisplay2").text(
+			"Mist - how enchanting... I hope your insurance is up to date because you're going to rear-end someone."
+		);
 	} else {
-		$("#phraseDisplay").append("Do Whatever You Want");
+		$("#phraseDisplay2").text("Who knows... ");
 	}
 }

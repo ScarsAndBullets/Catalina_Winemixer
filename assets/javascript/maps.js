@@ -79,6 +79,7 @@ function ajaxCall() {
 			addCity();
 			console.log(`Logging data object`);
 			console.log(data);
+			$("#zipcode").val("");
 		});
 	//console.log("Ajax stop");
 }
